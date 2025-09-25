@@ -44,8 +44,8 @@ function App() {
         <Routes>
           <Route path="/" element={<PedidoNotFound />} />
           <Route path="/pedido/:id" element={<PedidoPage />} />
-          <Route path="/pedido/*" element={<PedidoNotFound />} />
-          <Route path="*" element={<PedidoNotFound />} />
+          <Route path="/pedido/*" element={<PedidoPage />} />
+          <Route path="*" element={<PedidoPage />} />
         </Routes>
       </div>
     </Router>
