@@ -1,0 +1,5 @@
+# Render.com SPA redirects
+# This file tells Render to serve index.html for all routes
+# so React Router can handle client-side routing
+
+/*    /index.html   200
