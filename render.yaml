@@ -16,5 +16,8 @@ services:
         value: 1; mode=block
     routes:
       - type: rewrite
+        source: /pedido/*
+        destination: /index.html
+      - type: rewrite
         source: /*
         destination: /index.html
