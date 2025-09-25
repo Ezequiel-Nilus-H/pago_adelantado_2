@@ -24,8 +24,10 @@ export default defineConfig({
       output: {
         manualChunks: undefined
       }
-    }
+    },
+    copyPublicDir: true
   },
+  publicDir: 'public',
   preview: {
     allowedHosts: ['.nilus.rocks', 'pago-adelantado.dev.nilus.rocks', 'stg-promociones.nilus.co']
   },
