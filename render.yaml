@@ -6,8 +6,8 @@ services:
     staticPublishPath: ./dist
     routes:
       - type: rewrite
-        source: /pedido/*
+        source: /pedido/(.*)
         destination: /index.html
       - type: rewrite
-        source: /*
+        source: /(.*)
         destination: /index.html
