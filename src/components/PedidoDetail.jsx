@@ -243,7 +243,7 @@ const PedidoDetail = ({ pedido }) => {
             color: '#666',
             lineHeight: '1.4'
           }}>
-            ✅ Pago 100% seguro • ✅ Recibí tu pedido el día programado
+            ✅ Pago 100% seguro • ✅ Recibí tu pedido el día programado • ✅ Si no te entregamos, te devolvemos el dinero
           </div>
         </div>
       </div>
