@@ -4,7 +4,7 @@ const PedidoDetail = ({ pedido }) => {
   if (!pedido) return null;
 
   return (
-    <div style={{ height: '100vh', width: '100vw', backgroundColor: '#f5f5f5' }}>
+    <div style={{ height: '100vh', width: '100vw', backgroundColor: '#f5f5f5', overflow: 'hidden' }}>
       {/* Green Header */}
       <div style={{
         height: '60px',
@@ -41,7 +41,7 @@ const PedidoDetail = ({ pedido }) => {
       {/* Order Summary Content */}
       <div style={{
         padding: '16px',
-        height: 'calc(100vh - 96px)',
+        height: 'calc(100vh - 76px)',
         backgroundColor: 'white',
         borderRadius: '12px',
         boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
