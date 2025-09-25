@@ -1,0 +1,419 @@
+.tiktok-feed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  /* Ensure proper viewport calculations */
+  box-sizing: border-box;
+  /* Prevent layout shifts during initial render */
+  contain: layout style paint;
+  /* Force recalculation when content changes */
+  min-height: 100dvh;
+  /* Ensure proper scroll behavior */
+  overscroll-behavior: contain;
+}
+
+.deal-card {
+  width: 100vw;
+  height: 100dvh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  /* Ensure proper sizing and prevent overflow */
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Prevent layout shifts */
+  contain: layout style paint;
+}
+
+/* Ensure the first item renders properly */
+.tiktok-feed ul li {
+  /* Force proper viewport calculations */
+  width: 100vw !important;
+  height: 100dvh !important;
+  /* Prevent any overflow issues */
+  overflow: hidden;
+  /* Ensure proper positioning */
+  position: relative;
+  /* Force recalculation */
+  flex-shrink: 0;
+  /* Ensure proper sizing for dynamic content */
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+/* Ensure buttons don't overflow on initial render */
+.deal-card button {
+  /* Prevent button overflow */
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
+}
+
+.deal-info {
+  background: linear-gradient(to top, rgba(254,230,22), rgba(254,230,22,0.8));
+  color: #000;
+  width: 100%;
+  box-sizing: border-box;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  text-align: left;
+}
+
+.deal-indicator {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 1rem;
+}
+
+.cart-btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255);
+  border: none;
+  border-radius: 100%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  z-index: 2;
+}
+
+.cart-btn svg {
+  stroke: #22c55e !important;
+  fill: none;
+}
+
+.cart-button.animate-cart-pulse {
+  animation: cart-pulse 2s infinite;
+}
+
+@keyframes cart-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.cart-button.animate-cart-pulse-flash {
+  animation: cart-pulse-flash 0.7s infinite cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 0 20px 5px #22c55e, 0 0 40px 10px #fff;
+  filter: brightness(1.2) saturate(1.5);
+}
+
+@keyframes cart-pulse-flash {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #22c55e, 0 0 0 0 #fff;
+    filter: brightness(1.2) saturate(1.5);
+  }
+  40% {
+    transform: scale(1.18) rotate(-3deg);
+    box-shadow: 0 0 30px 10px #22c55e, 0 0 60px 20px #fff;
+    filter: brightness(1.5) saturate(2);
+  }
+  60% {
+    transform: scale(1.22) rotate(3deg);
+    box-shadow: 0 0 40px 20px #22c55e, 0 0 80px 30px #fff;
+    filter: brightness(1.7) saturate(2.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #22c55e, 0 0 0 0 #fff;
+    filter: brightness(1.2) saturate(1.5);
+  }
+}
+
+.tiktok-feed ul {
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding: 0;
+  height: 100dvh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Ensure proper sizing */
+  width: 100vw;
+  box-sizing: border-box;
+  /* Prevent layout shifts */
+  contain: layout style paint;
+  /* Force recalculation when content changes */
+  min-height: 100dvh;
+  /* Ensure proper flex behavior for dynamic content */
+  display: flex;
+  flex-direction: column;
+  /* Remove smooth scroll behavior to ensure snap points work properly */
+  scroll-behavior: auto;
+  /* Force recalculation of scroll dimensions */
+  will-change: scroll-position;
+}
+
+/* Ensure proper initial render of scroll container */
+.tiktok-feed ul:first-child {
+  width: 100vw !important;
+  height: 100dvh !important;
+}
+
+/* Force recalculation when new items are added */
+.tiktok-feed ul li {
+  /* Force proper viewport calculations */
+  width: 100vw !important;
+  height: 100dvh !important;
+  /* Prevent any overflow issues */
+  overflow: hidden;
+  /* Ensure proper positioning */
+  position: relative;
+  /* Force recalculation */
+  flex-shrink: 0;
+  /* Ensure proper sizing for dynamic content */
+  min-height: 100dvh;
+  box-sizing: border-box;
+  /* Ensure proper scroll snap behavior */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  /* Force recalculation of dimensions */
+  will-change: transform;
+}
+
+.piggy-corner {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%) scale(1);
+  transition: all 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.piggy-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  transition: all 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.piggy-enlarged {
+  /* Optionally add more scale or effects if needed */
+} 
+
+@keyframes custom-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.custom-spinner {
+  animation: custom-spin 1s linear infinite;
+} 
+
+.notranslate {
+  translate: no;
+} 
+
+/* --- Squish and Droplet Animations --- */
+@keyframes squish-in {
+  0% { transform: translateY(-80px) scale(1,1); opacity: 0; }
+  60% { transform: translateY(0) scale(1.1,0.8); opacity: 1; }
+  75% { transform: translateY(0) scale(0.9,1.2); }
+  90% { transform: translateY(0) scale(1.05,0.95); }
+  100% { transform: translateY(0) scale(1,1); opacity: 1; }
+}
+
+.squish-in {
+  animation: squish-in 0.6s cubic-bezier(0.4,0,0.2,1);
+  animation-fill-mode: both;
+}
+
+/* Price display fixes */
+.price-display {
+  white-space: nowrap;
+  max-width: 100%;
+  line-height: 1;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 16px;
+  flex-wrap: nowrap;
+  overflow: hidden; /* Ensure overflow is detected */
+}
+
+.price-main {
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+  line-height: 1.1;
+}
+
+.price-competitor {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@keyframes squished-out {
+  0% { opacity: 1; transform: scale(1,1); }
+  60% { opacity: 1; transform: scale(1.1,0.8); }
+  100% { opacity: 0; transform: scale(0.7,0.4); }
+}
+.squished {
+  animation: squished-out 0.4s cubic-bezier(0.4,0,0.2,1);
+  animation-fill-mode: both;
+}
+@keyframes price-droplet-rect {
+  0% {
+    opacity: 0.9;
+    transform: none;
+  }
+  60% {
+    opacity: 0.7;
+    /* Move outward 1.2em in the direction of the edge */
+    transform: translateY(var(--moveY,0)) translateX(var(--moveX,0)) scale(1.1) rotate(var(--rotate,0deg));
+  }
+  100% {
+    opacity: 0;
+    /* Move outward 2em in the direction of the edge */
+    transform: translateY(var(--moveY2,0)) translateX(var(--moveX2,0)) scale(0.8) rotate(var(--rotate,0deg));
+  }
+}
+.price-droplet-rect {
+  position: absolute;
+  width: 0.28em;
+  height: 0.5em;
+  background: linear-gradient(180deg, #34d399 60%, #059669 100%);
+  border-radius: 60% 100% 90% 100%/100% 60% 100% 100%; /* classic teardrop, no clip-path */
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.8;
+  animation: price-droplet-rect 0.5s cubic-bezier(0.4,0,0.2,1);
+  animation-fill-mode: both;
+  animation-delay: var(--droplet-delay, 0s);
+  /* Add a highlight with a pseudo-element */
+  position: absolute;
+}
+.price-droplet-rect::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 45%;
+  top: 18%;
+  width: 14%;
+  height: 22%;
+  background: rgba(255,255,255,0.7);
+  border-radius: 60% 100% 90% 100%/100% 60% 100% 100%;
+  transform: rotate(-18deg);
+  filter: blur(0.5px);
+}
+.price-droplet-rect-top {
+  --moveY: -1.2em; --moveX: 0; --moveY2: -2em; --moveX2: 0; --rotate: -10deg;
+}
+.price-droplet-rect-top-right {
+  --moveY: -0.8em; --moveX: 0.8em; --moveY2: -1.4em; --moveX2: 1.4em; --rotate: 25deg;
+}
+.price-droplet-rect-right {
+  --moveY: 0; --moveX: 1.2em; --moveY2: 0; --moveX2: 2em; --rotate: 45deg;
+}
+.price-droplet-rect-bottom-right {
+  --moveY: 0.8em; --moveX: 0.8em; --moveY2: 1.4em; --moveX2: 1.4em; --rotate: 65deg;
+}
+.price-droplet-rect-bottom {
+  --moveY: 1.2em; --moveX: 0; --moveY2: 2em; --moveX2: 0; --rotate: 90deg;
+}
+.price-droplet-rect-bottom-left {
+  --moveY: 0.8em; --moveX: -0.8em; --moveY2: 1.4em; --moveX2: -1.4em; --rotate: 115deg;
+}
+.price-droplet-rect-left {
+  --moveY: 0; --moveX: -1.2em; --moveY2: 0; --moveX2: -2em; --rotate: -45deg;
+}
+.price-droplet-rect-top-left {
+  --moveY: -0.8em; --moveX: -0.8em; --moveY2: -1.4em; --moveX2: -1.4em; --rotate: -25deg;
+}
+/* Rectangle for price for reference (optional, for debugging) */
+/* .price-rect { outline: 1px dashed #059669; } */ 
+
+/* Price warning message animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+} 
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+} 
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+} 
+
+@keyframes fadeInWarning {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+
+/* Pulse animation for promotion expiry modal */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+} 
