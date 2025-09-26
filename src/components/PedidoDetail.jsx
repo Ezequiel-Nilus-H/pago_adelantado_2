@@ -196,33 +196,38 @@ const PedidoDetail = ({ pedido }) => {
           </div>
 
           {/* Botón de pago */}
-          <button style={{
-            width: '100%',
-            padding: '16px',
-            backgroundColor: '#ffe600',
-            color: '#333',
-            border: 'none',
-            borderRadius: '12px',
-            fontSize: '16px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            boxShadow: '0 4px 15px rgba(255, 230, 0, 0.3)',
-            transition: 'all 0.2s ease',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '12px'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#e6d100';
-            e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(255, 230, 0, 0.4)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.backgroundColor = '#ffe600';
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(255, 230, 0, 0.3)';
-          }}
+          <a 
+            href={pedido.payment_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              width: '100%',
+              padding: '16px',
+              backgroundColor: '#ffe600',
+              color: '#333',
+              border: 'none',
+              borderRadius: '12px',
+              fontSize: '16px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(255, 230, 0, 0.3)',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              textDecoration: 'none'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#e6d100';
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.boxShadow = '0 6px 20px rgba(255, 230, 0, 0.4)';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#ffe600';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = '0 4px 15px rgba(255, 230, 0, 0.3)';
+            }}
           >
             <img 
               src="/mercado-pago-logo.png" 
@@ -234,7 +239,7 @@ const PedidoDetail = ({ pedido }) => {
               }} 
             />
             Pagar con Mercado Pago
-          </button>
+          </a>
 
           <div style={{
             textAlign: 'center',
