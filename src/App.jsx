@@ -9,28 +9,19 @@ import './App.css';
 
 const PedidoPage = () => {
   const { id } = useParams();
-  const { getPedidoById, loading, error, pedidos } = usePedidosData();
-  
-  // Debug logging (remove in production)
-  console.log('PedidoPage - ID:', id);
-  console.log('PedidoPage - Loading:', loading);
-  console.log('PedidoPage - Error:', error);
-  console.log('PedidoPage - Available pedidos:', pedidos.length);
+  const { getPedidoById, loading, error } = usePedidosData();
   
   if (loading) {
     return <LoadingPedido />;
   }
   
   if (error) {
-    console.error('Error loading pedidos:', error);
     return <PedidoNotFound />;
   }
   
   const pedido = getPedidoById(id);
-  console.log('PedidoPage - Found pedido:', pedido);
   
   if (!pedido) {
-    console.log('PedidoPage - No pedido found for ID:', id);
     return <PedidoNotFound />;
   }
   
