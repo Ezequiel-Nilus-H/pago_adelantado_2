@@ -143,7 +143,7 @@ const PedidoDetail = ({ pedido }) => {
             }}>${pedido.total_pedido}</span>
           </div>
 
-          {/* Descuento destacado */}
+          {/* Seña destacada */}
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -161,18 +161,18 @@ const PedidoDetail = ({ pedido }) => {
             }}>
               <span style={{
                 fontSize: '16px'
-              }}>🎉</span>
+              }}>💰</span>
               <span style={{
                 fontSize: '14px',
                 fontWeight: '600',
                 color: '#2d7a3d'
-              }}>Descuento pago adelantado</span>
+              }}>Seña para confirmar compra</span>
             </div>
             <span style={{
               fontSize: '16px',
               fontWeight: '700',
               color: '#2d7a3d'
-            }}>-${pedido.descuento}</span>
+            }}>$500</span>
           </div>
           
           <div style={{
@@ -187,12 +187,12 @@ const PedidoDetail = ({ pedido }) => {
               fontSize: '16px',
               fontWeight: '600',
               color: '#333'
-            }}>Total a pagar:</span>
+            }}>Seña a pagar:</span>
             <span style={{
               fontSize: '24px',
               fontWeight: '700',
               color: '#4aa35e'
-            }}>${pedido.total_pagar}</span>
+            }}>$500</span>
           </div>
 
           {/* Botón de pago */}
@@ -238,7 +238,7 @@ const PedidoDetail = ({ pedido }) => {
                 objectFit: 'contain'
               }} 
             />
-            Pagar con Mercado Pago
+            Pagar seña de $500
           </a>
 
           <div style={{
@@ -248,7 +248,7 @@ const PedidoDetail = ({ pedido }) => {
             color: '#666',
             lineHeight: '1.4'
           }}>
-            ✅ Pago 100% seguro • ✅ Recibí tu pedido el día programado • ✅ Si no te entregamos, te devolvemos el dinero
+            ✅ Pago 100% seguro • ✅ Confirma tu pedido con la seña • ✅ El saldo se paga al recibir el pedido
           </div>
         </div>
       </div>
